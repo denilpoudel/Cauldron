@@ -9,6 +9,9 @@ import { useTheme } from '@emotion/react';
 import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 const theme = createTheme({
   palette: {
@@ -37,25 +40,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-const candyOptions = [
-    {
-      value: 'Calories',
-      label: 'Number of Calories',
-    },
-    {
-      value: 'Sugar',
-      label: 'Grams of Sugar',
-    },
-  ];
-
 export default function CandyLimits() {
-    const [option, setOptions] = React.useState('Calories');
     const classes = useStyles();
-    const classesTheme = useTheme();
 
+    const [units, setUnits] = React.useState('');
     const handleChange = (event) => {
-      setOptions(event.target.value)};
+      setUnits(event.target.value);};
 
     return (
         <div class = "center">
@@ -84,27 +74,30 @@ export default function CandyLimits() {
 
             <div classname = "CandySelect">
             <ThemeProvider theme = {theme}>
-                <TextField
-                    required
-                    variant = "filled"
-                    id="CandyMeasurement"
-                    select
-                    label="Units"
-                    value={option}
-                    onChange={handleChange}
-                    size = "normal"
-                    color = "secondary"
-                    InputProps={{
-                      className: classes.input
-                    }}
+            <FormControl fullWidth>
+                <InputLabel id="select-units-label" color="secondary" className={classes.cssLabel}>Units *</InputLabel>
+                <Select
+                  labelId="select-units-label"
+                  id="select-units"
+                  value={units}
+                  label="Units"
+                  required
+                  width = 'small'
+                  color = "secondary"
+                  variant = "filled"
+                  onChange={handleChange}
+                  InputLabelProps={{
+                    className: classes.cssLabel
+                  }}
+                  InputProps={{
+                    className: classes.input
+                  }}
                 >
-                {candyOptions.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                    </MenuItem>
-                ))}
-                </TextField>
-
+                  <MenuItem value={1}>Calories</MenuItem>
+                  <MenuItem value={2}>Sugar (g)</MenuItem>
+                </Select>
+            </FormControl>
+            </ThemeProvider>
                 <br/>
                 <br/>
 
@@ -115,8 +108,6 @@ export default function CandyLimits() {
                 </Button>
               </Link>
               </div>
-
-                </ThemeProvider>
             </div>
         </div>
             ) 
