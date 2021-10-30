@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 
 export default function Loading() {
     const [redirectNow, setRedirectNow] = useState(false);
-    setTimeout(() => setRedirectNow(true), 2000);
+    setTimeout(() => setRedirectNow(true), 3000);
     return redirectNow ? (
         <Redirect to="/tracker" />
     ) : (
