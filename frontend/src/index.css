@@ -13,7 +13,7 @@ body {
       height: 100;
       /* Center and scale the image nicely */
       background-attachment: fixed, fixed, fixed, fixed, fixed;
-      background-position: 25% 115%, 50% 90%, 60% 60%, 80% 105%, center bottom;
+      background-position: 25% 115%, 50% 90%, 60% 70%, 80% 105%, center bottom;
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
       background-size: 25% auto, 12% auto, 15% auto, 12% auto, cover;
 }
