@@ -3,8 +3,9 @@ import "./style.css"
 
 export default function Loading() {
     return (
-        <div>
-            <h1>Loading</h1>
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '70vh'}}>
+            <h4>Preparing your Cauldron...</h4>
+
         </div>
     )
 }
