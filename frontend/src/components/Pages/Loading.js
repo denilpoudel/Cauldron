@@ -18,7 +18,7 @@ export default function Loading() {
                     <Button style={{color: "#9370DB", fontSize: "25px",  fontWeight: "normal", fontFamily: "Paytone One", textTransform: "none"}}variant="text" endIcon={<ArrowBackIcon />}>
                             Back to Candy Limit
                     </Button>
-                </Link>
+            </Link>
             </div>
             <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '70vh'}}>
                 <h4>Preparing your Cauldron...</h4>
