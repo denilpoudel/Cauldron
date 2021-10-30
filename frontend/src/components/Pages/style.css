@@ -43,3 +43,7 @@ h3 {
     /* Baby Powder */
     color: #F7F7F2;
 }
+
+.textfield_label {
+    color: #F7F7F2 !important;
+  }
