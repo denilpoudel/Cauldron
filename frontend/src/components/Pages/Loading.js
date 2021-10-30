@@ -20,7 +20,7 @@ export default function Loading() {
                     </Button>
             </Link>
             </div>
-            <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '70vh'}}>
+            <div class = "center">
                 <h4>Preparing your Cauldron...</h4>
             </div>
         </div>
