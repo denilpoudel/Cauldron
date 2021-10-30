@@ -10,7 +10,7 @@ const candyOptions = [
       label: 'Number of Calories',
     },
     {
-      value: 'Grams of Sugar',
+      value: 'Sugar',
       label: 'Grams of Sugar',
     },
   ];
