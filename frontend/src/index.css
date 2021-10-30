@@ -8,14 +8,14 @@ body {
   background-color: #343739;
 
       /* The image used */
-      background-image: url("Lollipop.png"), url("OrangeJellyBean.png"), url("GreenCandy.png"), url("PurpleJellyBean.png"), url("Splash.gif");
+      background-image: url("Lollipop.png"), url("OrangeJellyBean.png"), url("GreenCandy1.png"), url("PurpleJellyBean.png"), url("Splash.gif");
       /* Full height */
       height: 100;
       /* Center and scale the image nicely */
       background-attachment: fixed, fixed, fixed, fixed, fixed;
-      background-position: 25% 100%, 50% 90%, 60% 60%, 80% 105%, center bottom;
+      background-position: 25% 115%, 50% 90%, 60% 60%, 80% 105%, center bottom;
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-      background-size: 25% auto, 10% auto, 10% auto, 10% auto, cover;
+      background-size: 25% auto, 12% auto, 15% auto, 12% auto, cover;
 }
 
 code {
