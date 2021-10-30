@@ -6,6 +6,9 @@ import MenuItem from '@mui/material/MenuItem';
 import { createTheme, ThemeProvider} from '@mui/material/styles';
 import { withStyles, makeStyles } from '@mui/styles';
 import { useTheme } from '@emotion/react';
+import {Link} from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const theme = createTheme({
   palette: {
@@ -100,6 +103,18 @@ export default function CandyLimits() {
                     </MenuItem>
                 ))}
                 </TextField>
+
+                <br/>
+                <br/>
+
+              <div classname = "Submit Button">
+                <Link to="/loading" style={{textDecoration: "none"}}>
+                <Button style={{backgroundColor: "#cbc3e3", color: "#9370D0", fontSize: "20px",  fontWeight: "bold", fontFamily: "Paytone One"}}variant="contained" endIcon={<ArrowForwardIcon />}>
+                    Submit
+                </Button>
+              </Link>
+              </div>
+
                 </ThemeProvider>
             </div>
         </div>
