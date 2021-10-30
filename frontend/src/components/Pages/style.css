@@ -1,0 +1,43 @@
+.center {
+    margin-top: 144px;
+    margin-bottom: 144px;
+}
+
+h1 {
+    /* Big Website Title */
+    font-family: Paytone One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 16px;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Baby Powder */
+    color: #F7F7F2;
+}
+
+h2 {
+    /* Header 1 */
+    font-family: Paytone One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 8px;
+
+    /* Flame */
+    color: #F05D23;
+}
+
+h3 {
+    /* Header 1 */
+    font-family: Paytone One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 8px;
+
+    /* Baby Powder */
+    color: #F7F7F2;
+}
