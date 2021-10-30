@@ -44,6 +44,13 @@ h3 {
     color: #F7F7F2;
 }
 
-.textfield_label {
-    color: #F7F7F2 !important;
-  }
+h4 {
+    /* Loading Screen */
+    font-family: Paytone One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 5vw;
+    line-height: 16px;
+    text-align: center;
+    color: #cbd37b
+}
