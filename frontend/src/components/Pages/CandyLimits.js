@@ -109,7 +109,7 @@ export default function CandyLimits() {
 
               <div classname = "Submit Button">
                 <Link to="/loading" style={{textDecoration: "none"}}>
-                <Button style={{backgroundColor: "#cbc3e3", color: "#9370D0", fontSize: "20px",  fontWeight: "bold", fontFamily: "Paytone One"}}variant="contained" endIcon={<ArrowForwardIcon />}>
+                <Button style={{backgroundColor: "#cbc3e3", color: "#9370D0", fontSize: "20px",  fontWeight: "bold", fontFamily: "Paytone One", textTransform: "none"}}variant="contained" endIcon={<ArrowForwardIcon />}>
                     Submit
                 </Button>
               </Link>
