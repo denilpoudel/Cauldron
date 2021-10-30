@@ -2,7 +2,6 @@ import React from 'react'
 import "./style.css"
 import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -33,8 +32,8 @@ export default function Tracker() {
     const classes = useStyles();
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={0} style={{backgroundColor: 'transparent', boxShadow: 'none'}}>
-                <Grid item xs={8}>
+            <Grid container spacing={0}>
+                <Grid item xs={8.5}>
                     <Paper className = {classes.paper1}>
                         <div>
                             <div style={{display: 'flex', alignItems: 'left', padding: '15px'}}>
@@ -45,12 +44,23 @@ export default function Tracker() {
                             </Link>
                             </div>
                         </div>
+                        <div class = "center">
+                            <h1 style={{fontSize: "500%"}}>Your cauldron is 0% full.</h1>
+                            <h4 style={{fontSize: "500%"}}>0/2500 calories</h4>
+                        </div>
                     </Paper>
                 </Grid>
-                <Grid item xs={4} style={{backgroundColor: 'white', boxShadow: 'none'}}>
+                <Grid item xs={3.5} style={{backgroundColor: 'white', boxShadow: 'none'}}>
                     <Paper className = {classes.paper2}>
                         <div>
                             <h2>My Cauldron</h2>
+                        </div>
+                        <div style={{position: 'absolute', bottom: '0', paddingBottom: '5%'}}>
+                            <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Total: 0</h2>
+                            <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Goal: 2500</h2>
+                        </div>
+                        <div style={{position: 'absolute', bottom: '0', paddingBottom: '1%'}}>
+                            <h4 style={{paddingLeft: '110%', whiteSpace: 'nowrap'}}>Under Limit!</h4>
                         </div>
                     </Paper>
                 </Grid>
