@@ -25,8 +25,19 @@ export default function CandyLimits() {
         <div class = "center">
             <h3>What’s your candy limit today?</h3>
 
+            <div classname = "CandyAmount">
+`            <TextField
+              required
+              id="CandyAmtLimit"
+              label="Amount"
+              defaultValue="2500"
+              />
+            </div>
+            
+
             <div classname = "CandySelect">
                 <TextField
+                    required
                     id="CandyMeasurement"
                     select
                     label="Units"

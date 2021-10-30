@@ -4,7 +4,7 @@ import {Landing, CandyLimits} from "./components/Pages"
 function App() {
   return (
     <div className="App">
-      <CandyLimits></CandyLimits>
+      <Landing></Landing>
     </div>
   );
 }
