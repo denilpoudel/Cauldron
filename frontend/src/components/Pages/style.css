@@ -29,3 +29,15 @@ h2 {
     /* Flame */
     color: #F05D23;
 }
+
+h3 {
+    /* Header 1 */
+    font-family: Paytone One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 8px;
+
+    /* Baby Powder */
+    color: #F7F7F2;
+}
