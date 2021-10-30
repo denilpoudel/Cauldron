@@ -12,7 +12,7 @@ export default function Landing() {
             <h1>Cauldron</h1>
             <h2>No tricks, only treats.</h2>
             <Link to="/candylimits" style={{textDecoration: "none"}}>
-                <Button style={{backgroundColor: "#cbc3e3", color: "#9370D0", fontSize: "20px",  fontWeight: "bold", fontFamily: "Paytone One"}}variant="contained" endIcon={<ArrowForwardIcon />}>
+                <Button style={{backgroundColor: "#ded5ec", color: "#9370DB", fontSize: "20px",  fontWeight: "bold", fontFamily: "Paytone One", textTransform: "none"}}variant="contained" endIcon={<ArrowForwardIcon />}>
                     Start Tracking
                 </Button>
             </Link>
