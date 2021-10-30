@@ -15,7 +15,7 @@ export default function Loading() {
         <div>
             <div style={{display: 'flex', alignItems: 'left', padding: '15px'}}>
             <Link to="/candylimits" style={{textDecoration: "none"}}>
-                    <Button style={{color: "#9370DB", fontSize: "25px",  fontWeight: "normal", fontFamily: "Paytone One", textTransform: "none"}}variant="text" endIcon={<ArrowBackIcon />}>
+                    <Button style={{color: "#9370DB", fontSize: "25px",  fontWeight: "normal", fontFamily: "Paytone One", textTransform: "none"}}variant="text" startIcon={<ArrowBackIcon />}>
                             Back to Candy Limit
                     </Button>
             </Link>
