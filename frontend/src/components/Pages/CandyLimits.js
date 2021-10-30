@@ -65,6 +65,7 @@ export default function CandyLimits() {
                 <ThemeProvider theme = {theme}>
                 <TextField
                 required
+                variant = "filled"
                 id="CandyAmtLimit"
                 label="Amount"
                 size = "normal"
@@ -85,6 +86,7 @@ export default function CandyLimits() {
             <ThemeProvider theme = {theme}>
                 <TextField
                     required
+                    variant = "filled"
                     id="CandyMeasurement"
                     select
                     label="Units"
@@ -92,7 +94,6 @@ export default function CandyLimits() {
                     onChange={handleChange}
                     size = "normal"
                     color = "secondary"
-                    
                     InputProps={{
                       className: classes.input
                     }}
