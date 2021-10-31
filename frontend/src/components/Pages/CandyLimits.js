@@ -2,10 +2,8 @@ import React , {useState} from 'react'
 import "./style.css"
 // Text field alterations
 import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
 import { createTheme, ThemeProvider} from '@mui/material/styles';
-import { withStyles, makeStyles } from '@mui/styles';
-import { useTheme } from '@emotion/react';
+import { makeStyles } from '@mui/styles';
 import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -21,6 +19,11 @@ const theme = createTheme({
     fontFamily: 'Paytone One',
   },
 
+  select: {
+    '&:after': {
+      color: '#F7F7F2',
+  }}
+
 });
 
 const useStyles = makeStyles(theme => ({
@@ -30,33 +33,22 @@ const useStyles = makeStyles(theme => ({
     }
   },
   input: {
-    color: '#F7F7F2'
+    color: '#F7F7F2',
+    "& .MuiSelect-select:focus": {
+      color: '#F7F7F2'
+    }
   },
   cssLabel: {
     color : '#F7F7F2'
   },
 }));
 
-
-const candyOptions = [
-    {
-      value: 'Calories',
-      label: 'Number of Calories',
-    },
-    {
-      value: 'Sugar',
-      label: 'Grams of Sugar',
-    },
-  ];
-
 export default function CandyLimits() {
+
     const [option, setOptions] = useState('Calories');
     const [amount, setAmount] = useState(0)
-    const classes = useStyles();
-    const classesTheme = useTheme();
 
-    const handleChange = (event) => {
-      setOptions(event.target.value)};
+    const classes = useStyles();
 
     const handleAmount = (e) =>{
       setAmount(e.target.value)
@@ -70,9 +62,10 @@ export default function CandyLimits() {
                 <ThemeProvider theme = {theme}>
                 <TextField
                 required
+                variant = "filled"
                 id="CandyAmtLimit"
-                label="Amount"
-                size = "normal"
+                label="Number of Calories"
+                width = "900px"
                 color = "secondary"
                 defaultValue = "0"
                 value={amount}
@@ -88,31 +81,6 @@ export default function CandyLimits() {
               </ThemeProvider>
             </div>
             
-            <br/>
-
-            <div classname = "CandySelect">
-            <ThemeProvider theme = {theme}>
-                <TextField
-                    required
-                    id="CandyMeasurement"
-                    select
-                    label="Units"
-                    value={option}
-                    onChange={handleChange}
-                    size = "normal"
-                    color = "secondary"
-                    
-                    InputProps={{
-                      className: classes.input
-                    }}
-                >
-                {candyOptions.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                    </MenuItem>
-                ))}
-                </TextField>
-
                 <br/>
                 <br/>
 
@@ -123,9 +91,6 @@ export default function CandyLimits() {
                 </Button>
               </Link>
               </div>
-
-                </ThemeProvider>
             </div>
-        </div>
             ) 
 }
