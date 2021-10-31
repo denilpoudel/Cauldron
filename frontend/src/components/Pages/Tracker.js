@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { db} from '../Firebase';
-import { ref, onValue} from "firebase/database";
+import { ref, onValue, get, child} from "firebase/database";
 
 
 
@@ -45,16 +45,16 @@ export default function Tracker() {
 
     useEffect(() => {
         var colorRef = ref(db,'Color/Send');
-        console.log(data)
-        let new_data = [data]
+      
         onValue(colorRef, (snapshot) => {
             const candy = snapshot.val();
-            new_data.push(candy)
-            setData(new_data);
+            
+            setData(...data, candy);
+            
         });
       }, [1]);
-    
-  
+
+     
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0}>
@@ -67,6 +67,7 @@ export default function Tracker() {
                                             Back to Candy Limit
                                     </Button>
                             </Link>
+                            <Button> Refresh</Button>
                             </div>
                         </div>
                         <div class = "center">
