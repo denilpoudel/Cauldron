@@ -38,11 +38,14 @@ const useStyles = makeStyles({
     "Sugar": 29
 }
 
-export default function Tracker() {
+export default function Tracker(props) {
 
     const classes = useStyles();
     const [data, setData] = useState([old_data]);
-    const [totalCalories, setTotalCalories] = useState([0])
+    const [totalCalories, setTotalCalories] = useState(0)
+    const [candyAmount, setCandyAmount] = useState(0)
+    const [percentageFull, setPercentage] = useState(0)
+    const [isOverLimit, setOverLimit] = useState([false])
 
     useEffect(() => {
         var colorRef = ref(db,'Color/Send');
@@ -53,6 +56,7 @@ export default function Tracker() {
             setData(olddata);
             caluclateTotalCalories (olddata)
         });
+        setCandyAmount(props.location.amount)
         
       }, []);
 
@@ -77,14 +81,26 @@ export default function Tracker() {
 
     const caluclateTotalCalories = (data) => {
         const x = data
+        const amount = parseInt(candyAmount)
         let totalCalories = 0;
         x.forEach(element => {
             totalCalories += element.Calories
         })
+
+        console.log(totalCalories)
+        console.log(amount)
+        let percentage = Math.floor((totalCalories/amount)*100)
+        setPercentage(percentage)
+        if (percentage => 100){
+            setOverLimit(true)
+        }else{
+            setOverLimit(false)
+        }
         setTotalCalories(totalCalories)
     }
 
-    console.log(data)
+ 
+    console.log(isOverLimit)
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0}>
@@ -101,8 +117,8 @@ export default function Tracker() {
                             </div>
                         </div>
                         <div class = "center">
-                            <h3>Your cauldron is 0% full.</h3>
-                            <h4>{totalCalories}/2500 calories</h4>
+                            <h1 style={{fontSize: "500%"}}>Your cauldron is {percentageFull}% full.</h1>
+                            <h4 style={{fontSize: "500%"}}>{totalCalories}/{candyAmount} calories</h4>
                         </div>
                     </Paper>
                 </Grid>
@@ -126,8 +142,11 @@ export default function Tracker() {
                             <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Goal:</h2>
                         </div>
                         <div style={{position: 'absolute', bottom: '0'}}>
-                            <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}> {totalCalories} <br/><br/><br/><h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>2500</h7></h7>
-                            <h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap'}}>Under Limit!</h4>
+                            <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}> {totalCalories} <br/><br/><br/>
+                            <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>{candyAmount}</h7></h7>
+                            {isOverLimit
+                                ?<h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap'}}>Over Limit!</h4>
+                                :<h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap'}}>Under Limit!</h4> }
                         </div>
                     </Paper>
                 </Grid>
