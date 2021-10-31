@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import "./style.css"
 import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
@@ -7,6 +7,10 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { db} from '../Firebase';
+import { ref, onValue} from "firebase/database";
+
+
 
 const useStyles = makeStyles({
     root: {
@@ -29,7 +33,18 @@ const useStyles = makeStyles({
   
 
 export default function Tracker() {
+
     const classes = useStyles();
+  
+    useEffect(() => {
+        var starCountRef = ref(db,'Color/Send');
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            console.log(data)
+        });
+      }, [1]);
+    
+    
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0}>
