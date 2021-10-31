@@ -41,6 +41,7 @@ export default function Tracker() {
 
     const classes = useStyles();
     const [data, setData] = useState([old_data]);
+    const [totalCalories, setTotalCalories] = useState([0])
 
     useEffect(() => {
         var colorRef = ref(db,'Color/Send');
@@ -49,8 +50,9 @@ export default function Tracker() {
             const candy = snapshot.val();
             olddata.push(candy)
             setData(olddata);
-            
+            caluclateTotalCalories (olddata)
         });
+        
       }, []);
 
 
@@ -59,10 +61,26 @@ export default function Tracker() {
         let olddata = [...data]
         onValue(colorRef, (snapshot) => {
             const candy = snapshot.val();
-            olddata.push(candy)
-            setData(olddata);
+            if (data.length < 7){
+                olddata.push(candy)
+                setData(olddata);
+                caluclateTotalCalories (olddata)
+            }
+            else{
+                setData(old_data)
+            }
             
         });
+    }
+
+
+    const caluclateTotalCalories = (data) => {
+        const x = data
+        let totalCalories = 0;
+        x.forEach(element => {
+            totalCalories += element.Calories
+        })
+        setTotalCalories(totalCalories)
     }
 
     console.log(data)
@@ -83,7 +101,7 @@ export default function Tracker() {
                         </div>
                         <div class = "center">
                             <h1 style={{fontSize: "500%"}}>Your cauldron is 0% full.</h1>
-                            <h4 style={{fontSize: "500%"}}>0/2500 calories</h4>
+                            <h4 style={{fontSize: "500%"}}>{totalCalories}/2500 calories</h4>
                         </div>
                     </Paper>
                 </Grid>
@@ -107,7 +125,7 @@ export default function Tracker() {
                             <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Goal:</h2>
                         </div>
                         <div style={{position: 'absolute', bottom: '0'}}>
-                            <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>0 <br/><br/><br/><h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>2500</h7></h7>
+                            <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}> {totalCalories} <br/><br/><br/><h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>2500</h7></h7>
                             <h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap'}}>Under Limit!</h4>
                         </div>
                     </Paper>
