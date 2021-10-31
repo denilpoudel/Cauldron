@@ -85,7 +85,7 @@ export default function CandyLimits() {
                 <br/>
 
               <div classname = "Submit Button">
-                <Link to="/loading" style={{textDecoration: "none"}}>
+                <Link to={{pathname:'/loading', amount}} style={{textDecoration: "none"}}>
                 <Button style={{backgroundColor: "#cbc3e3", color: "#9370D0", fontSize: "20px",  fontWeight: "bold", fontFamily: "Paytone One", textTransform: "none"}}variant="contained" endIcon={<ArrowForwardIcon />}>
                     Submit
                 </Button>
