@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import { db} from '../Firebase';
 import { ref, onValue, get, child} from "firebase/database";
 
@@ -96,12 +97,12 @@ export default function Tracker() {
                                             Back to Candy Limit
                                     </Button>
                             </Link>
-                            <Button onClick = {refresh} > Refresh</Button>
+                            <Button style={{color: "#DED5EC", fontSize: "25px",  fontWeight: "normal", fontFamily: "Paytone One", textTransform: "none"}}variant="text" startIcon={<RefreshIcon />} onClick = {refresh} > Refresh</Button>
                             </div>
                         </div>
                         <div class = "center">
-                            <h1 style={{fontSize: "500%"}}>Your cauldron is 0% full.</h1>
-                            <h4 style={{fontSize: "500%"}}>{totalCalories}/2500 calories</h4>
+                            <h3>Your cauldron is 0% full.</h3>
+                            <h4>{totalCalories}/2500 calories</h4>
                         </div>
                     </Paper>
                 </Grid>
