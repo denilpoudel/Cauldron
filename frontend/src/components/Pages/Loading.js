@@ -1,16 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./style.css"
 import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useLocation } from "react-router-dom";
 
 export default function Loading() {
     const [redirectNow, setRedirectNow] = useState(false);
     setTimeout(() => setRedirectNow(true), 3000);
+   
     return redirectNow ? (
-        <Redirect to="/tracker" />
+        <Redirect to="/tracker"/>
     ) : (
         <div>
             <div style={{display: 'flex', alignItems: 'left', padding: '15px'}}>
