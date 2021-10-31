@@ -45,7 +45,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function CandyLimits() {
 
-    const [option, setOptions] = useState('Calories');
     const [amount, setAmount] = useState(0)
 
     const classes = useStyles();
