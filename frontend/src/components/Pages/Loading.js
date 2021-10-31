@@ -5,12 +5,14 @@ import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Redirect, useLocation } from "react-router-dom";
 
-export default function Loading() {
+export default function Loading(props) {
     const [redirectNow, setRedirectNow] = useState(false);
     setTimeout(() => setRedirectNow(true), 3000);
-   
+    const amount = props.location.amount
+
+  
     return redirectNow ? (
-        <Redirect to="/tracker"/>
+        <Redirect to={{pathname:'/tracker', amount}}/>
     ) : (
         <div>
             <div style={{display: 'flex', alignItems: 'left', padding: '15px'}}>
