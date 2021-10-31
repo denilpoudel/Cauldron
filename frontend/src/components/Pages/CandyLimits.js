@@ -2,16 +2,11 @@ import React from 'react'
 import "./style.css"
 // Text field alterations
 import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
 import { createTheme, ThemeProvider} from '@mui/material/styles';
-import { withStyles, makeStyles } from '@mui/styles';
-import { useTheme } from '@emotion/react';
+import { makeStyles } from '@mui/styles';
 import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import Select from '@mui/material/Select';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 
 const theme = createTheme({
   palette: {
@@ -24,6 +19,11 @@ const theme = createTheme({
     fontFamily: 'Paytone One',
   },
 
+  select: {
+    '&:after': {
+      color: '#F7F7F2',
+  }}
+
 });
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +33,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   input: {
-    color: '#F7F7F2'
+    color: '#F7F7F2',
+    "& .MuiSelect-select:focus": {
+      color: '#F7F7F2'
+    }
   },
   cssLabel: {
     color : '#F7F7F2'
@@ -42,10 +45,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function CandyLimits() {
     const classes = useStyles();
-
-    const [units, setUnits] = React.useState('');
-    const handleChange = (event) => {
-      setUnits(event.target.value);};
 
     return (
         <div class = "center">
@@ -57,8 +56,8 @@ export default function CandyLimits() {
                 required
                 variant = "filled"
                 id="CandyAmtLimit"
-                label="Amount"
-                size = "normal"
+                label="Number of Calories"
+                width = "900px"
                 color = "secondary"
                 InputLabelProps={{
                   className: classes.cssLabel
@@ -70,34 +69,6 @@ export default function CandyLimits() {
               </ThemeProvider>
             </div>
             
-            <br/>
-
-            <div classname = "CandySelect">
-            <ThemeProvider theme = {theme}>
-            <FormControl fullWidth>
-                <InputLabel id="select-units-label" color="secondary" className={classes.cssLabel}>Units *</InputLabel>
-                <Select
-                  labelId="select-units-label"
-                  id="select-units"
-                  value={units}
-                  label="Units"
-                  required
-                  width = 'small'
-                  color = "secondary"
-                  variant = "filled"
-                  onChange={handleChange}
-                  InputLabelProps={{
-                    className: classes.cssLabel
-                  }}
-                  InputProps={{
-                    className: classes.input
-                  }}
-                >
-                  <MenuItem value={1}>Calories</MenuItem>
-                  <MenuItem value={2}>Sugar (g)</MenuItem>
-                </Select>
-            </FormControl>
-            </ThemeProvider>
                 <br/>
                 <br/>
 
@@ -109,6 +80,5 @@ export default function CandyLimits() {
               </Link>
               </div>
             </div>
-        </div>
             ) 
 }
