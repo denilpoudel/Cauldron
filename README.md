@@ -3,6 +3,8 @@ No tricks, only treats. 🎃🍬 Cauldron keeps track of the calories you take i
   
 Created by Adam Serag, Denil Poudel, Katrina Orevillo, and Steven Toda for Hack-O-Lantern 2021. View our DevPost submission [here](https://devpost.com/software/cauldron-k04ghx)!
 
+![CAD](hardware/Cauldron_Physical.jpg)
+
 ## How We Built It
 For the user-facing web app, we designed and prototyped our concept in Figma. This design prototype served as a guide for our frontend - created using React, Material-UI components, and React-Router. This frontend pulls information from our Firebase Realtime Database backend, which updates the “My Cauldron” data whenever a new candy was scanned by Cam, our spider-buddy. 🕷  
   
