@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   
   const old_data = {
     "Calories": 280,
-    "Name": "Snickers",
+    "Name": "Hersheys",
     "Sugar": 29
 }
 
@@ -42,19 +42,30 @@ export default function Tracker() {
     const classes = useStyles();
     const [data, setData] = useState([old_data]);
 
-
     useEffect(() => {
         var colorRef = ref(db,'Color/Send');
-      
+        let olddata = [...data]
         onValue(colorRef, (snapshot) => {
             const candy = snapshot.val();
-            
-            setData(...data, candy);
+            olddata.push(candy)
+            setData(olddata);
             
         });
-      }, [1]);
+      }, []);
 
-     
+
+    const refresh = (e) => {
+        var colorRef = ref(db,'Color/Send');
+        let olddata = [...data]
+        onValue(colorRef, (snapshot) => {
+            const candy = snapshot.val();
+            olddata.push(candy)
+            setData(olddata);
+            
+        });
+    }
+
+    console.log(data)
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0}>
@@ -67,7 +78,7 @@ export default function Tracker() {
                                             Back to Candy Limit
                                     </Button>
                             </Link>
-                            <Button> Refresh</Button>
+                            <Button onClick = {refresh} > Refresh</Button>
                             </div>
                         </div>
                         <div class = "center">
@@ -81,12 +92,16 @@ export default function Tracker() {
                         <div>
                             <h2>My Cauldron</h2>
                         </div>
-                        <div>
-                            <h5 style={{paddingLeft: '5%'}}>Twix
-                            <h6>286 cals ea.</h6> <br/>
-                            <h7 style={{paddingLeft: '50%', whiteSpace: 'nowrap'}}>286 cals</h7>
-                            </h5>
-                        </div>
+                        {data.map(items => {
+                            return(
+                                <div>
+                                    <h5 style={{paddingLeft: '5%'}}>{items.Name}
+                                    <h6>{data.Calories} {items.Calories}cals ea.</h6>
+                                    </h5>
+                                </div>
+                            )
+                        })
+                        }
                         <div style={{position: 'absolute', bottom: '0', paddingBottom: '5.5%'}}>
                             <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Total:</h2>
                             <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Goal:</h2>
