@@ -45,7 +45,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function CandyLimits() {
 
-    const [option, setOptions] = useState('Calories');
     const [amount, setAmount] = useState(0)
 
     const classes = useStyles();
@@ -57,6 +56,7 @@ export default function CandyLimits() {
     return (
         <div class = "center">
             <h3>What’s your candy limit today?</h3>
+            <br/>
 
             <div classname = "CandyAmount">
                 <ThemeProvider theme = {theme}>
@@ -81,7 +81,6 @@ export default function CandyLimits() {
               </ThemeProvider>
             </div>
             
-                <br/>
                 <br/>
 
               <div classname = "Submit Button">
