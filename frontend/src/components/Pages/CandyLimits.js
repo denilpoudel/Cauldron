@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import "./style.css"
 // Text field alterations
 import TextField from '@mui/material/TextField';
@@ -50,13 +50,18 @@ const candyOptions = [
   ];
 
 export default function CandyLimits() {
-    const [option, setOptions] = React.useState('Calories');
+    const [option, setOptions] = useState('Calories');
+    const [amount, setAmount] = useState(0)
     const classes = useStyles();
     const classesTheme = useTheme();
 
     const handleChange = (event) => {
       setOptions(event.target.value)};
 
+    const handleAmount = (e) =>{
+      setAmount(e.target.value)
+    }
+    
     return (
         <div class = "center">
             <h3>What’s your candy limit today?</h3>
@@ -69,11 +74,15 @@ export default function CandyLimits() {
                 label="Amount"
                 size = "normal"
                 color = "secondary"
+                defaultValue = "0"
+                value={amount}
+                onChange = {handleAmount}
                 InputLabelProps={{
                   className: classes.cssLabel
                 }}
                 InputProps={{
                   className: classes.input
+                  
                 }}
                 />
               </ThemeProvider>
