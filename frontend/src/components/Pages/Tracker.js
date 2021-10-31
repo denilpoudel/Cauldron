@@ -43,9 +43,9 @@ export default function Tracker(props) {
     const classes = useStyles();
     const [data, setData] = useState([old_data]);
     const [totalCalories, setTotalCalories] = useState(0)
-    const [candyAmount, setCandyAmount] = useState(0)
+    const [candyAmount, setCandyAmount] = useState(props.location.amount)
     const [percentageFull, setPercentage] = useState(0)
-    const [isOverLimit, setOverLimit] = useState([false])
+    const [isOverLimit, setOverLimit] = useState(false)
 
     useEffect(() => {
         var colorRef = ref(db,'Color/Send');
@@ -54,9 +54,9 @@ export default function Tracker(props) {
             const candy = snapshot.val();
             olddata.push(candy)
             setData(olddata);
-            caluclateTotalCalories (olddata)
-        });
-        setCandyAmount(props.location.amount)
+            calculateTotalCalories (olddata)
+        })
+       
         
       }, []);
 
@@ -69,7 +69,7 @@ export default function Tracker(props) {
             if (data.length < 7){
                 olddata.push(candy)
                 setData(olddata);
-                caluclateTotalCalories (olddata)
+                calculateTotalCalories (olddata)
             }
             else{
                 setData(old_data)
@@ -79,7 +79,7 @@ export default function Tracker(props) {
     }
 
 
-    const caluclateTotalCalories = (data) => {
+    const calculateTotalCalories = (data) => {
         const x = data
         const amount = parseInt(candyAmount)
         let totalCalories = 0;
@@ -87,11 +87,11 @@ export default function Tracker(props) {
             totalCalories += element.Calories
         })
 
-        console.log(totalCalories)
-        console.log(amount)
         let percentage = Math.floor((totalCalories/amount)*100)
         setPercentage(percentage)
-        if (percentage => 100){
+        console.log(percentage)
+        console.log(isOverLimit)
+        if (percentage >= 100){
             setOverLimit(true)
         }else{
             setOverLimit(false)
@@ -100,7 +100,7 @@ export default function Tracker(props) {
     }
 
  
-    console.log(isOverLimit)
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0}>
