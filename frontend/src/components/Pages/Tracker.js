@@ -55,12 +55,19 @@ export default function Tracker() {
                         <div>
                             <h2>My Cauldron</h2>
                         </div>
-                        <div style={{position: 'absolute', bottom: '0', paddingBottom: '5%'}}>
-                            <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Total: 0</h2>
-                            <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Goal: 2500</h2>
+                        <div>
+                            <h5 style={{paddingLeft: '5%'}}>Twix
+                            <h6>286 cals ea.</h6> <br/>
+                            <h7 style={{paddingLeft: '50%', whiteSpace: 'nowrap'}}>286 cals</h7>
+                            </h5>
                         </div>
-                        <div style={{position: 'absolute', bottom: '0', paddingBottom: '1%'}}>
-                            <h4 style={{paddingLeft: '110%', whiteSpace: 'nowrap'}}>Under Limit!</h4>
+                        <div style={{position: 'absolute', bottom: '0', paddingBottom: '5.5%'}}>
+                            <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Total:</h2>
+                            <h2 style={{paddingLeft: '25%', whiteSpace: 'nowrap'}}>Goal:</h2>
+                        </div>
+                        <div style={{position: 'absolute', bottom: '0'}}>
+                            <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>0 <br/><br/><br/><h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>2500</h7></h7>
+                            <h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap'}}>Under Limit!</h4>
                         </div>
                     </Paper>
                 </Grid>
