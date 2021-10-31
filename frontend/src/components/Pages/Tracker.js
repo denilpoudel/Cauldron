@@ -31,20 +31,30 @@ const useStyles = makeStyles({
       },
   });
   
+  const old_data = {
+    "Calories": 280,
+    "Name": "Snickers",
+    "Sugar": 29
+}
 
 export default function Tracker() {
 
     const classes = useStyles();
-  
+    const [data, setData] = useState([old_data]);
+
+
     useEffect(() => {
-        var starCountRef = ref(db,'Color/Send');
-        onValue(starCountRef, (snapshot) => {
-            const data = snapshot.val();
-            console.log(data)
+        var colorRef = ref(db,'Color/Send');
+        console.log(data)
+        let new_data = [data]
+        onValue(colorRef, (snapshot) => {
+            const candy = snapshot.val();
+            new_data.push(candy)
+            setData(new_data);
         });
       }, [1]);
     
-    
+  
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0}>
