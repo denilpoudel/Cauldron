@@ -145,7 +145,7 @@ export default function Tracker(props) {
                             <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}> {totalCalories} <br/><br/><br/>
                             <h7 style={{paddingLeft: '140%', whiteSpace: 'nowrap'}}>{candyAmount}</h7></h7>
                             {isOverLimit
-                                ?<h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap'}}>Over Limit!</h4>
+                                ?<h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap', color: 'red'}}>Over Limit!</h4>
                                 :<h4 style={{paddingLeft: '110%', paddingBottom: '10px', whiteSpace: 'nowrap'}}>Under Limit!</h4> }
                         </div>
                     </Paper>
